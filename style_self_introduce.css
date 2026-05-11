@@ -150,3 +150,71 @@ body {
     background-color: transparent;
     cursor: pointer;
 }
+
+.guestbook-section {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.guestbook-section h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#server-msg,
+#my-msg {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    font-size: 15px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.write-area {
+    display: flex;
+    gap: 10px;
+}
+
+#guest-name {
+    width: 80px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+#guest-msg {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+#guest-name:focus,
+#guest-msg:focus {
+    border-color: #007bff;
+}
+
+#submit-btn {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#submit-btn:hover {
+    background-color: #0056b3;
+}

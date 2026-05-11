@@ -3,7 +3,13 @@ const goalInput=document.querySelector("#goalInput");
 const addGoalBtn=document.querySelector("#addGoalBtn");
 const goalList=document.querySelector("#goalList");
 const errorMessage=document.querySelector("#errorMessage");
-const goalCount=document.querySelector("#goalCount");
+const goalCount = document.querySelector("#goalCount");
+const serverMsg = document.querySelector('#server-msg');
+const myMsg = document.querySelector('#my-msg');
+const nameInput = document.querySelector('#guest-name');
+const msgInput = document.querySelector('#guest-msg');
+const submitBtn = document.querySelector('#submit-btn');
+
 
 let goalTotal=0;
 
@@ -52,4 +58,48 @@ function addGoal() {
 	goalInput.value="";
 }
 
-addGoalBtn.addEventListener("click",addGoal);
+addGoalBtn.addEventListener("click", addGoal);
+
+
+function getMessageData() {
+  return new Promise(function(resolve) {
+    setTimeout(function() {
+      resolve("방명록을 마음껏 작성해주세요!"); 
+    }, 1500);
+  });
+}
+
+async function initGuestbook() {
+  const data = await getMessageData();
+  
+  serverMsg.textContent = data; 
+}
+
+let isFirst = true;
+
+submitBtn.addEventListener('click', function () {
+  const name = nameInput.value;
+  const msg = msgInput.value;
+
+  if (name === '' || msg === '') {
+    alert("이름과 메시지를 모두 입력해주세요.");
+    return;
+  }
+  
+	const result = name + ": " + msg + "<br><br>";
+
+  if (isFirst === true) {
+	  myMsg.innerHTML = result;
+	  isFirst = false;
+  }
+  else {
+	  myMsg.innerHTML = myMsg.innerHTML + result;
+  }
+	
+
+  nameInput.value = '';
+  msgInput.value = '';
+});
+
+initGuestbook();
+
